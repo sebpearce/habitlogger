@@ -1,0 +1,11 @@
+CREATE TABLE habit_types ( id integer NOT NULL, name text NOT NULL );
+
+CREATE SEQUENCE habits_id_seq;
+
+CREATE TABLE habits ( id integer DEFAULT nextval('habits_id_seq'::regclass) NOT NULL, name text NOT NULL, type integer NOT NULL );
+
+CREATE SEQUENCE doings_id_seq;
+
+CREATE TABLE doings ( id integer DEFAULT nextval('doings_id_seq'::regclass) NOT NULL, date date NOT NULL, habit integer NOT NULL, value integer NOT NULL );
+
+postgres://seb@localhost/database

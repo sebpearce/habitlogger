@@ -1,0 +1,8 @@
+form(action='/habits/add' method='post' class='newHabitForm' id='newHabitForm')
+  .textinput-container
+    label.textinput-label Habit
+    input(type='text' name='newHabit' class='textinput newHabitForm-name' id='newHabitForm-name')
+  .textinput-container
+    label.textinput-label Type
+    input(type='text' name='newHabitType' class='textinput newHabitForm-type' id='newHabitForm-type')
+  input(type='submit', value='add new habit', class='submitbutton newHabitForm-submit' id='newHabitForm-submit')

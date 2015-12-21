@@ -1,0 +1,40 @@
+extends ../layout.jade
+
+block content
+
+  h2 Route: /db
+
+  h2 Habit types table
+  table
+    th id
+    th name
+    each row in habitTypes
+      tr
+        td= row.id
+        td= row.name
+        
+  h2 Habits table
+  table
+    th id
+    th name
+    th type
+    each row in habits
+      tr
+        td= row.id
+        td= row.name
+        td= row.type
+        
+  h2 Doings table
+  table
+    th id
+    th date
+    th habit
+    th value
+    th type
+    each row in doings
+      tr
+        td= row.id
+        td= row.date
+        td= row.habit
+        td= row.value
+        td= row.type

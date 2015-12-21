@@ -1,0 +1,34 @@
+{
+  "name": "habitlogger",
+  "version": "1.0.0",
+  "description": "A way to keep track of habits you want to build",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebpearce/habitlogger.git"
+  },
+  "author": "Seb Pearce",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebpearce/habitlogger/issues"
+  },
+  "homepage": "https://github.com/sebpearce/habitlogger#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "jade": "^1.11.0",
+    "lodash": "^3.10.1",
+    "pg": "^4.4.3"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "del": "^2.2.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-minify-css": "^1.2.2",
+    "gulp-ruby-sass": "^2.0.6"
+  }
+}

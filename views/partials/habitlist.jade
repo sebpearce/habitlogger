@@ -1,0 +1,13 @@
+table#habitlist
+  th id
+  th name
+  th type
+  th blah
+  each row in habits
+    tr
+      td= row.id
+      td= row.name
+      td= row.type
+      td #{habitTypes[row.type]}
+      td
+        a(href='#' class='delete-link' data-id='#{row.id}') X

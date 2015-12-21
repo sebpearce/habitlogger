@@ -1,0 +1,39 @@
+//
+//    h2 habit_types table
+//    table
+//      tr
+//        th id
+//        th habit
+//        th value
+//      each row in habit_types
+//        tr
+//          td= row.id
+//          td= row.habit
+//          td= row.value
+//
+//    h2 habits table
+//    table
+//      tr
+//        th id
+//        th habit
+//        th value
+//      each row in habits
+//        tr
+//          td= row.id
+//          td= row.habit
+//          td= row.value
+//
+
+h2 Doings table
+table
+  tr
+    th id
+    th date
+    th habit
+    th value
+  each row in doings
+    tr
+      td= row.id
+      td= row.date
+      td= row.habit
+      td= row.value

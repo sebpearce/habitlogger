@@ -1,0 +1,14 @@
+extends ../layout.jade
+
+block scripts
+  script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+  //- script(src='/js/habits.js')
+  
+block content  
+
+  h2 Route: /doings
+  
+  .doingslist-container
+    include ../partials/habitlist.jade
+  //- .newhabitform-container
+  //-   include ../partials/newhabitform.jade
