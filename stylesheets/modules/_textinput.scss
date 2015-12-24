@@ -1,0 +1,15 @@
+.textinput-container {
+  display: inline-block;
+}
+
+.textinput {
+  font-size: 1rem;
+  padding: 8px 11px;
+  outline: none;
+}
+
+.textinput-label {
+  font-size: 0.9rem;
+  font-weight: $bold;
+  display: block;
+}

@@ -1,4 +1,6 @@
 TODO
 
+- split app.js into parts with imports
+- use Babelify -> then can use imports (kit.js) in client-side with browserify
 - Deploy to Heroku:
 - https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku

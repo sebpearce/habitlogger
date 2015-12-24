@@ -1,14 +1,17 @@
 extends ../layout.jade
 
+block head
+  link(href='/css/bootstrap-datepicker3.min.css', rel='stylesheet')
+
 block scripts
-  script(src='https://code.jquery.com/jquery-2.1.4.min.js')
-  //- script(src='/js/habits.js')
+  script(src='/js/bootstrap-datepicker.min.js')
+  script(src='/js/doings.js')
   
 block content  
 
   h2 Route: /doings
   
   .doingslist-container
-    include ../partials/habitlist.jade
-  //- .newhabitform-container
-  //-   include ../partials/newhabitform.jade
+    include ../partials/doingslist.jade
+  .newdoingform-container
+    include ../partials/newdoingform.jade

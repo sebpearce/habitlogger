@@ -1,0 +1,14 @@
+.submitbutton {
+  font-size: 1rem;
+  padding: 8px 11px;
+  border: none;
+  outline: none;
+  background: hsl(110,50%,65%);
+  border-radius: 3px;
+  &:hover {
+    background: hsl(110,50%,70%);
+  }
+  &:active {
+    transform: scale(0.9);
+  }
+}

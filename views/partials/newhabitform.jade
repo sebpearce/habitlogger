@@ -1,8 +1,18 @@
-form(action='/habits/add' method='post' class='newHabitForm' id='newHabitForm')
+form(action='/habits/add' method='post' class='newhabitform' id='newHabitForm')
   .textinput-container
     label.textinput-label Habit
-    input(type='text' name='newHabit' class='textinput newHabitForm-name' id='newHabitForm-name')
+    input(type='text' name='newHabit' class='textinput newhabitform-name' id='newHabitForm-name')
   .textinput-container
     label.textinput-label Type
-    input(type='text' name='newHabitType' class='textinput newHabitForm-type' id='newHabitForm-type')
-  input(type='submit', value='add new habit', class='submitbutton newHabitForm-submit' id='newHabitForm-submit')
+    input(type='radio' name='newHabitType' value='1' checked) 
+    span timed
+    input(type='radio' name='newHabitType' value='2')
+    span counted
+    input(type='radio' name='newHabitType' value='3')
+    span binary
+    //- input(type='text' name='newHabitType-old' class='textinput newhabitform-type' id='newHabitForm-type')
+  input(type='submit', value='add new habit', class='submitbutton newhabitform-submit' id='newHabitForm-submit')
+  div#errorBox.error-box
+    span.error-box-inner
+      header Error
+      span#errorMessage.error-message No! I won't do it!

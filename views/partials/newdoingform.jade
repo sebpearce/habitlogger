@@ -1,0 +1,22 @@
+form(action='/doings/add' method='post' class='newdoingform' id='newdoingform')
+  .textinput-container
+    label.textinput-label Date
+    input.datepicker(name='newdoingdate' id='newdoingform-date')
+  .textinput-container
+    label.textinput-label Habit
+    select(name='newdoinghabit' id='newdoingform-habit')
+      each row in habits
+        option(value='#{row.id}' data-type= '#{row.type}' data-type-name='#{row.type_name}')= row.name
+  .textinput-container
+    label.textinput-label#newdoingform-valueinput
+    #newdoingform-valueinput-textinput-container
+      input(type='text' name='newdoingvalue' class='textinput' id='newdoingform-value')
+    #newdoingform-valueinput-checkboxinput-container
+      input(type='radio' name='newdoingvalue' id='newdoingform-value-radio' value='1')
+      input(type='radio' name='newdoingvalue' id='newdoingform-value-radio' value='0')
+
+  input(type='submit', value='add', class='submitbutton newdoingform-submit' id='newdoingform-submit')
+  div#errorBox.error-box
+    span.error-box-inner
+      header Error
+      span#errorMessage.error-message No! I won't do it!

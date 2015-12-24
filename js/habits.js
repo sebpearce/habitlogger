@@ -6,6 +6,29 @@
 //   const isNameValid;
 // }
 
+function setErrorMsg (msg, element) {
+  $('#errorMessage').text(msg);
+}
+
+function populateHabitsTable () {
+  let tableData = '';
+
+  $.getJSON('/habits/list', function (data) {
+
+    $.each(data.habits, function () {
+      tableData += '<tr>';
+      tableData += '<td>' + this.id + '</td>';
+      tableData += '<td>' + this.name + '</td>';
+      tableData += '<td>' + data.habitTypes[this.type] + '</td>';
+      tableData += '<td><a href="#" class="delete-link" data-id="' + this.id 
+        + '">\u00D7</a></td>';
+      tableData += '</tr>';
+    });
+
+    $('#habitlist tbody').html(tableData);
+  });
+}
+
 function addNewHabit (name, type) {
   const jsonData = JSON.stringify({
     'newHabit': name,
@@ -18,15 +41,20 @@ function addNewHabit (name, type) {
     data: jsonData,
     contentType: 'application/json',
     success: function (data) {
-      $('.habitlist-container').html(data);
+      populateHabitsTable();
+      $('#errorBox').hide();
     },
-    error: function(msg) {
-      console.log(msg);
+    error: function(data) {
+      console.log(data.responseJSON);
+      const msg = (data.responseJSON.error) ? data.responseJSON.error : 'There was a little problem.';
+      setErrorMsg(msg);
+      $('#errorBox').show(msg);
     },
-    dataType: 'html',
+    dataType: 'json',
   });
 }
 
+// TODO: refactor this so it can be used for both habits and doings
 function deleteHabit (id) {
   const jsonData = JSON.stringify({
     'habitToDelete': id,
@@ -38,13 +66,24 @@ function deleteHabit (id) {
     data: jsonData,
     contentType: 'application/json',
     success: function (data) {
-      $('.habitlist-container').html(data);
+      if (data.success) {
+        populateHabitsTable();
+        $('#errorBox').hide();
+      }
     },
-    dataType: 'html',
+    error: function (data) {
+      console.log(data.responseJSON);
+      const msg = (data.responseJSON.error) ? data.responseJSON.error : 'There was a little problem.';
+      setErrorMsg(msg);
+      $('#errorBox').show(msg);
+    },
+    dataType: 'json',
   });
 }
 
 $(document).ready(function () {
+
+  populateHabitsTable();
 
   // .content is not replaced via AJAX injection, so let jQuery bind to it
   $('.content').on('click', '.delete-link', function (event) {

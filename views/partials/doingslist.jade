@@ -1,15 +1,8 @@
-table#habitlist
-  th id
-  th date
-  th habit
-  th value
-  th type
-  each row in habits
-    tr
-      td= row.id
-      td= row.date
-      td= row.habit
-      td= row.value
-      td #{habitTypes[row.type]}
-      td
-        a(href='#' class='delete-link' data-id='#{row.id}') X
+table#doingslist
+  thead
+    th id
+    th date
+    th habit
+    th value
+    th type
+  tbody
