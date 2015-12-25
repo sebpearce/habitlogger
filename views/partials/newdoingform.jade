@@ -1,10 +1,10 @@
 form(action='/doings/add' method='post' class='newdoingform' id='newdoingform')
   .textinput-container
     label.textinput-label Date
-    input.datepicker(name='newdoingdate' id='newdoingform-date')
+    input.datepicker.textinput(name='newdoingdate' id='newdoingform-date')
   .textinput-container
     label.textinput-label Habit
-    select(name='newdoinghabit' id='newdoingform-habit')
+    select.select(name='newdoinghabit' id='newdoingform-habit')
       each row in habits
         option(value='#{row.id}' data-type= '#{row.type}' data-type-name='#{row.type_name}')= row.name
   .textinput-container
@@ -12,8 +12,8 @@ form(action='/doings/add' method='post' class='newdoingform' id='newdoingform')
     #newdoingform-valueinput-textinput-container
       input(type='text' name='newdoingvalue' class='textinput' id='newdoingform-value')
     #newdoingform-valueinput-checkboxinput-container
-      input(type='radio' name='newdoingvalue' id='newdoingform-value-radio' value='1')
-      input(type='radio' name='newdoingvalue' id='newdoingform-value-radio' value='0')
+      input(type='radio' name='newdoingvalue' class='newdoingform-value-radio' id='newdoingform-value-radio' value='1' data-answer='Yes')
+      input(type='radio' name='newdoingvalue' class='newdoingform-value-radio' id='newdoingform-value-radio' value='0' data-answer='No')
 
   input(type='submit', value='add', class='submitbutton newdoingform-submit' id='newdoingform-submit')
   div#errorBox.error-box

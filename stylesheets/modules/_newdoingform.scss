@@ -1,3 +1,29 @@
+.newdoingform {
+  margin: 1.5em 0;
+}
+
 #newdoingform-valueinput-checkboxinput-container {
   display: none;
+}
+
+.newdoingform-value-radio {
+  position: relative;
+  font-size: 1rem;
+}
+
+.newdoingform-value-radio[data-answer='Yes'] {
+  margin-right: 40px;
+  &::after {
+    position: absolute;
+    left: 20px;
+    content: 'Yes';
+  }
+}
+
+.newdoingform-value-radio[data-answer='No'] {
+  &::after {
+    position: absolute;
+    left: 20px;
+    content: 'No';
+  }
 }

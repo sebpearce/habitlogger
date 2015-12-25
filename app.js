@@ -82,6 +82,37 @@ function getDoingsTable (next) {
   });
 }
 
+function convertValueToCounted (v) {
+  return '\u00D7 ' + v;
+}
+function convertValueToBinary (v) {
+  return +v ? 'Yes' : 'No';
+}
+
+function convertValueToTime (sec) {
+  let hr = Math.floor(sec / 3600);
+  sec -= hr * 3600;
+  hr = (hr >= 1) ? (hr + 'h') : '';
+  let min = Math.floor(sec / 60);
+  min = (min >= 1) ? (min + 'm') : '';
+  let remSec = sec % 60;
+  remSec = (remSec !== 0) ? (remSec + 's') : '';
+  return hr + min + remSec;
+}
+
+function formatValues (obj) {
+  for (let row of obj) {
+    if (row.type === 1) {
+      row.value = convertValueToTime(row.value);
+    }    
+    if (row.type === 2) {
+      row.value = convertValueToCounted(row.value);
+    }
+    if (row.type === 3) {
+      row.value = convertValueToBinary(row.value);
+    }
+  }
+}
 
 // ROUTES
 
@@ -97,6 +128,11 @@ app.get('/doings/list', function (req, res) {
   const opts = {};
   getDoingsTable(function (err, doings) {
     _.merge(opts, doings);
+
+    // format timed values
+    kit.log(opts, 'opts');
+    formatValues(opts.doings);
+
     res.json(opts);
   })
 });
@@ -123,7 +159,11 @@ app.post('/doings/add', function (req, res) {
   const newDoingHabit = req.body.newdoinghabit;
   const newDoingValue = req.body.newdoingvalue;
 
-  const sql = 'INSERT INTO doings (date, habit, value) VALUES (\'' + newDoingDate + '\',\'' + newDoingHabit + '\',\'' + newDoingValue + '\');';
+  const sql = {
+    text: 'INSERT INTO doings (date, habit, value) VALUES ($1, $2, $3);',
+    values: [newDoingDate, newDoingHabit, newDoingValue],
+  };
+
   client.query(sql, function (err, result) {
     if (err) {
       console.error(err);
@@ -138,10 +178,19 @@ app.post('/doings/add', function (req, res) {
   });
 });
 
+// TODO: If user tries to delete habit that has referenced keys in doings table,
+// send back a code that prompts them to choose whether they want to delete all
+// the doings rows that reference it, and if they say yes, send back the same
+// delete POST with an added property like "sure: true"
+
 app.post('/doings/delete', function(req, res) {
   const idToDelete = req.body.doingtodelete;
 
-  const sql = 'DELETE FROM doings WHERE id = ' + idToDelete + ';';
+  const sql = {
+    text: 'DELETE FROM doings WHERE id = $1;',
+    values: [idToDelete],
+  };
+
   client.query(sql, function (err, result) {
     if (err) {
       console.error(err);
@@ -182,8 +231,10 @@ app.post('/habits/add', function (req, res) {
 
   const newHabitName = req.body.newHabit;
   const newHabitType = req.body.newHabitType;
-  const sql = 'INSERT INTO habits (name, type) VALUES (\'' + newHabitName 
-    + '\',\'' + newHabitType + '\');';
+  const sql = {
+    text: 'INSERT INTO habits (name, type) VALUES ($1, $2);',
+    values: [newHabitName, newHabitType],
+  };
   client.query(sql, function (err, result) {
     if (err) {
       console.error(err);
@@ -202,7 +253,10 @@ app.post('/habits/delete', function (req, res) {
   console.log('\n--> /habits/delete... (POST)');
 
   const idToDelete = req.body.habitToDelete;
-  const sql = 'DELETE FROM habits WHERE id = ' + idToDelete + ';';
+  const sql = {
+    text: 'DELETE FROM habits WHERE id = $1;',
+    values: [idToDelete],
+  };
   client.query(sql, function (err, result) {
     if (err) {
       console.error(err);

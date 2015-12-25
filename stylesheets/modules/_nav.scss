@@ -1,0 +1,21 @@
+.nav {
+  margin: 1em 0;
+  padding: 0;
+}
+
+.nav li {
+  display: inline-block;
+  list-style: none;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.nav li a {
+  color: $link-color;
+  text-decoration: none;
+  padding: 1em 2em;
+  &:hover {
+    color: lighten($link-color, 30%);
+  }
+}

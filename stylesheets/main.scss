@@ -2,18 +2,22 @@ $bold: 700;
 $error-box-lightcolor: hsl(0,100%,95%);
 $error-box-darkcolor: hsl(0,100%,65%);
 $delete-link-color: hsl(0,80%,90%);
+$link-color: hsl(210,80%,50%);
 
 // Globals
 @import 'globals';
 
 // Layouts
+@import 'layouts/header';
 @import 'layouts/page-footer';
 
 // Modules
+@import 'modules/nav';
 @import 'modules/errorbox';
 @import 'modules/textinput';
 @import 'modules/deletelink';
 @import 'modules/submitbutton';
+@import 'modules/form';
 @import 'modules/newdoingform';
 
 @import 'modules/datepicker';
