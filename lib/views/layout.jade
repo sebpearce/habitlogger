@@ -10,11 +10,10 @@ html(lang="en")
 
   body
     include ./partials/header.jade
-    include ./partials/nav.jade
-    
-    .content
-      block content
-    
+    .wrapper
+      include ./partials/nav.jade
+      .content
+        block content
     include ./partials/footer.jade
 
   script(src='https://code.jquery.com/jquery-2.1.4.min.js')

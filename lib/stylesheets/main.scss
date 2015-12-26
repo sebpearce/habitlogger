@@ -1,15 +1,22 @@
+$base-font-family: 'Open Sans';
+$alt-font-family: 'Inconsolata', 'Consolas', monospace;
+
 $bold: 700;
 $error-box-lightcolor: hsl(0,100%,95%);
 $error-box-darkcolor: hsl(0,100%,65%);
 $delete-link-color: hsl(0,80%,90%);
 $link-color: hsl(210,80%,50%);
+$footer-bg: #eee;
+$site-header-bg: #6DAA6E;
+$site-header-color: white;
 
 // Globals
 @import 'globals';
 
 // Layouts
+@import 'layouts/wrapper';
 @import 'layouts/header';
-@import 'layouts/page-footer';
+@import 'layouts/site-footer';
 
 // Modules
 @import 'modules/nav';
