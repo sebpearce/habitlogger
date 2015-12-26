@@ -1,4 +1,4 @@
-extends ../layout.jade
+extends ../views/layout
 
 block scripts
   script(src='/js/habits.js')
@@ -8,6 +8,6 @@ block content
   h2 Route: /habits
   
   .habitlist-container
-    include ../partials/habitlist.jade
+    include ./habitlist.jade
   .form-container.newhabitform-container
-    include ../partials/newhabitform.jade
+    include ./newhabitform.jade

@@ -4,10 +4,6 @@
 
 {
   (function () {
-    var setErrorMsg = function setErrorMsg(msg) {
-      $('#errorMessage').text(msg);
-    };
-
     var populateDoingsTable = function populateDoingsTable() {
       var tableData = '';
       $.getJSON('/doings/list', function (data) {
@@ -46,7 +42,7 @@
         error: function error(data) {
           console.log(data.responseJSON);
           var msg = data.responseJSON.error ? data.responseJSON.error : 'There was a little problem.';
-          setErrorMsg(msg);
+          $('#errorMessage').text(msg);
           $('#errorBox').show(msg);
         },
         dataType: 'json'
@@ -70,7 +66,7 @@
         error: function error(data) {
           console.log(data.responseJSON);
           var msg = data.responseJSON.error ? data.responseJSON.error : 'There was a little problem.';
-          setErrorMsg(msg);
+          $('#errorMessage').text(msg);
           $('#errorBox').show(msg);
         },
         dataType: 'json'

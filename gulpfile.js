@@ -6,14 +6,23 @@ var sass = require('gulp-ruby-sass');
 var autoprefixer = require('gulp-autoprefixer');
 // var browserify = require('browserify');
 var babel = require('gulp-babel');
+var rename = require('gulp-rename');
+var runSeq = require('run-sequence');
+
+const scriptsToWatch = [
+  'lib/**/*/scripts/*.js'
+];
+
+gulp.task('clear', function () {
+  del(['public/js', 'public/css']);
+});
 
 gulp.task('js', function () {
-  gulp.src('js/*.js')
+  gulp.src(scriptsToWatch)
+    .pipe(rename({dirname: ''})) // flattens dir structure
     .pipe(babel({
       presets: ['es2015'],
     }))
-    .pipe(gulp.dest('public/js'));
-  gulp.src('js/vendor/*')
     .pipe(gulp.dest('public/js'));
   // gulp.src('js/**/*.js')
   // browserify('js/main.js')
@@ -24,27 +33,26 @@ gulp.task('js', function () {
 });
 
 gulp.task('vendors', function () {
-  gulp.src('stylesheets/vendor/**/*.css')
+  gulp.src('vendor/*.css')
     .pipe(gulp.dest('public/css'));
+  gulp.src('vendor/*.js')
+    .pipe(gulp.dest('public/js'));
   // gulp.src('fonts/*')
   //   .pipe(gulp.dest('public/fonts'));
 });
 
 gulp.task('styles', function () {
-  return sass('stylesheets/main.scss')
+  return sass('lib/stylesheets/main.scss')
     .pipe(autoprefixer({ 'browsers': 'last 2 versions' }))
     .pipe(minifycss())
     .pipe(gulp.dest('public/css'));
 });
 
-gulp.task('clear', function () {
-  del('public/js');
-  del('public/css');
-});
-
 gulp.task('watch', function () {
-  gulp.watch('js/**/*.js', ['js']);
-  gulp.watch('stylesheets/**/*.scss', ['styles']);
+  gulp.watch(scriptsToWatch, ['js']);
+  gulp.watch('lib/stylesheets/**/*.scss', ['styles']);
 });
 
-gulp.task('default', ['clear', 'vendors', 'js', 'styles', 'watch']);
+gulp.task('default', function (cb) {
+  runSeq('clear', ['vendors', 'js', 'styles', 'watch'], cb);
+});

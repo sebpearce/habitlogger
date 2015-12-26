@@ -1,4 +1,4 @@
-extends ../layout.jade
+extends ../views/layout
 
 block head
   link(href='/css/bootstrap-datepicker3.min.css', rel='stylesheet')
@@ -12,6 +12,6 @@ block content
   h2 Route: /doings
   
   .doingslist-container
-    include ../partials/doingslist.jade
+    include ./doingslist
   .form-container.newdoingform-container
-    include ../partials/newdoingform.jade
+    include ./newdoingform

@@ -3,15 +3,11 @@
 
 // function validateHabitsForm () {
 //   const nameReg = /^[A-Za-z0-9]+$/
-//   const isNameValid;
+//   const isNameValid; blah blah
 // }
 
 {
   (function () {
-    var setErrorMsg = function setErrorMsg(msg) {
-      $('#errorMessage').text(msg);
-    };
-
     var populateHabitsTable = function populateHabitsTable() {
       var tableData = '';
 
@@ -48,7 +44,7 @@
         error: function error(data) {
           console.log(data.responseJSON);
           var msg = data.responseJSON.error ? data.responseJSON.error : 'There was a little problem.';
-          setErrorMsg(msg);
+          $('#errorMessage').text(msg);
           $('#errorBox').show(msg);
         },
         dataType: 'json'
@@ -76,7 +72,7 @@
         error: function error(data) {
           console.log(data.responseJSON);
           var msg = data.responseJSON.error ? data.responseJSON.error : 'There was a little problem.';
-          setErrorMsg(msg);
+          $('#errorMessage').text(msg);
           $('#errorBox').show(msg);
         },
         dataType: 'json'
