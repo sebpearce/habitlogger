@@ -21,10 +21,12 @@ const indexRoute = require('./lib/routes/index');
 const dbRoute = require('./lib/routes/db');
 const habitsRoute = require('./lib/routes/habits');
 const doingsRoute = require('./lib/routes/doings');
+const todayRoute = require('./lib/routes/today');
 app.use(indexRoute);
 app.use(dbRoute);
 app.use(habitsRoute);
 app.use(doingsRoute);
+app.use(todayRoute);
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

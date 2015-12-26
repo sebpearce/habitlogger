@@ -1,13 +1,19 @@
+// Typography
 $base-font-family: 'Open Sans';
 $alt-font-family: 'Inconsolata', 'Consolas', monospace;
-
 $bold: 700;
+$link-color: hsl(210,80%,50%);
+
+// Base colors
+$base-hue: 121;
+$base-color: hsl($base-hue, 26%, 55%);
+
+// Paritcular colors
 $error-box-lightcolor: hsl(0,100%,95%);
 $error-box-darkcolor: hsl(0,100%,65%);
 $delete-link-color: hsl(0,80%,90%);
-$link-color: hsl(210,80%,50%);
 $footer-bg: #eee;
-$site-header-bg: #6DAA6E;
+$site-header-bg: $base-color;
 $site-header-color: white;
 
 // Globals
@@ -26,5 +32,4 @@ $site-header-color: white;
 @import 'modules/submitbutton';
 @import 'modules/form';
 @import 'modules/newdoingform';
-
 @import 'modules/datepicker';

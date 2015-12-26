@@ -3,14 +3,15 @@
   font-weight: $bold;
   text-decoration: none;
   padding: 0 10px;
-  border: 2px solid hsla(0,0%,0%,0);
+  // border: 2px solid hsla(0,0%,0%,0);
   border-radius: 50%;
-  transition: border-color 0.3s ease, color 0.3s ease;
+  // transition: border-color 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
   line-height: 100%;
   font-size: 1.5rem;
   &:hover {
     color: hsl(0,100%,60%);
-    border-color: hsl(0,80%,80%);
+    // border-color: hsl(0,80%,80%);
     transition: none;
   }
 }

@@ -20,9 +20,21 @@ h1, h2, h3, h4, h5, h6 {
   font-family: $alt-font-family;
 }
 
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  &:hover {
+    background: hsl(0,0%,97%);
+  }
+}
+
 td, th {
   padding: 3px 15px;
   border-collapse: collapse;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 th {

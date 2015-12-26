@@ -1,12 +1,13 @@
 .submitbutton {
   font-size: 1rem;
-  padding: 8px 11px;
+  padding: 1em 2em;
   border: none;
   outline: none;
-  background: hsl(110,50%,65%);
+  background: $base-color;
   border-radius: 3px;
+  color: white;
   &:hover {
-    background: hsl(110,50%,70%);
+    background: lighten($base-color, 5%);
   }
   &:active {
     transform: scale(0.9);
