@@ -1,7 +1,7 @@
 // Typography
 $base-font-family: 'Open Sans';
 $alt-font-family: 'Inconsolata', 'Consolas', monospace;
-$bold: 700;
+$bold: 600;
 $link-color: hsl(210,80%,50%);
 
 // Base colors
@@ -15,6 +15,10 @@ $delete-link-color: hsl(0,80%,90%);
 $footer-bg: #eee;
 $site-header-bg: $base-color;
 $site-header-color: white;
+$todaylist-checkbox-checked-bg: lighten($base-color,20%);
+$todaylist-checkbox-unchecked-bg: #eee;
+$todaylist-info-color: #888;
+$textinput-color: #888;
 
 // Globals
 @import 'globals';
@@ -32,4 +36,5 @@ $site-header-color: white;
 @import 'modules/submitbutton';
 @import 'modules/form';
 @import 'modules/newdoingform';
+@import 'modules/todaylist';
 @import 'modules/datepicker';

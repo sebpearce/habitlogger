@@ -1,0 +1,26 @@
+each row in habits
+
+  .todaylist-row
+
+    .todaylist-row-habitname
+      span #{row.name}
+
+    .todaylist-row-check
+        input(type='checkbox' class='todaylist-row-checkbox' id='todaylist-row-checkbox-#{row.id}' data-id='#{row.id}' data-type='#{row.type}' checked=(todayCheckedList.hasOwnProperty(row.id) ? true : false))
+
+        label.todaylist-row-checkbox-label(for='todaylist-row-checkbox-#{row.id}')
+
+    .todaylist-row-info 
+      - var habitTypes = ['', 'How much time?', 'How many?'];
+
+      //- Insert text input for timed and counted habits
+      - if (row.type !== 3) {
+        .todaylist-row-textinput-container(id='todaylist-row-textinput-container-#{row.id}' data-id='#{row.id}')
+          label.todaylist-row-textinput-label #{habitTypes[row.type]}
+          input(type='text' class='todaylist-row-textinput' id='todaylist-row-textinput-#{row.id}' data-id='#{row.id}' data-type='#{row.type}')
+      - }
+
+        span(id='todaylist-row-info-text-#{row.id}')
+          - if (todayCheckedList.hasOwnProperty(row.id) && todayCheckedList[row.id].value != 'Yes') {
+          | #{todayCheckedList[row.id].value}
+          - }

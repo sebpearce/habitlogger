@@ -1,0 +1,105 @@
+.todaylist-container {
+  max-width: 800px;
+  // margin: 0 auto;
+}
+
+.todaylist-row { 
+  display: flex;
+}
+
+.todaylist-row-habitname {
+  flex: 2;
+  color: $base-color;
+  font-weight: $bold;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  // background: pink;
+}
+
+.todaylist-row-check {
+  flex: 1;
+  display: flex;
+  // display: table-cell;
+  // vertical-align: middle;
+  // background: green;
+  justify-content: center;
+  padding: 0.3em 0;
+  // border-bottom: 1px solid black;
+  // height: 60px;
+}
+
+.todaylist-row-textinput-container {
+  display: none;
+  padding: 0 2em 0 0;
+  // background: seagreen;
+}
+
+.todaylist-row-textinput-label {
+  display: block;
+  font-size: 0.75em;
+}
+
+.todaylist-row-textinput {
+  // background: green;
+  font-size: 14px;
+  // padding: 0.25em 0.5em;
+  padding: 0.25em 0;
+  width: 7em;
+  color: $textinput-color;
+  font-weight: $bold;
+  font-family: inherit;
+  // border-radius: 3px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+.todaylist-row-checkbox {
+  display: none;
+}
+
+.todaylist-row-checkbox-label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  // padding-left: 25px;
+  // margin-right: 15px;
+  // font-size: 13px;
+  width: 50px;
+  height: 50px;
+  border-radius: 3px;
+  background: $todaylist-checkbox-unchecked-bg;
+  &:hover {
+    background: darken($todaylist-checkbox-unchecked-bg, 5%);
+    // background-image: url('/img/tick.png');
+    // background-size: 55%;
+    // background-position: center;
+    // background-repeat: no-repeat;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}
+
+.todaylist-row-checkbox-label:before {
+
+}
+
+.todaylist-row-checkbox:checked + label {
+  background: $todaylist-checkbox-checked-bg;
+  background-image: url('/img/tick.png');
+  background-size: 55%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.todaylist-row-info {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: $todaylist-info-color;
+  // padding-left: 2em;
+}

@@ -23,6 +23,7 @@ gulp.task('js', function () {
     .pipe(babel({
       presets: ['es2015'],
     }))
+    .on('error', console.log)
     .pipe(gulp.dest('public/js'));
   // gulp.src('js/**/*.js')
   // browserify('js/main.js')
@@ -45,6 +46,7 @@ gulp.task('styles', function () {
   return sass('lib/stylesheets/main.scss')
     .pipe(autoprefixer({ 'browsers': 'last 2 versions' }))
     .pipe(minifycss())
+    .on('error', console.log)
     .pipe(gulp.dest('public/css'));
 });
 
@@ -54,5 +56,5 @@ gulp.task('watch', function () {
 });
 
 gulp.task('default', function (cb) {
-  runSeq('clear', ['vendors', 'js', 'styles', 'watch'], cb);
+  runSeq('clear', ['vendors', 'js', 'styles'], cb);
 });

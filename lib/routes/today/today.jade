@@ -6,3 +6,10 @@ block scripts
 block content  
 
   h2 Route: /today
+
+  .todaylist-container
+    include ./todaylist
+  div#errorBox.error-box
+    span.error-box-inner
+      header Error
+      span#errorMessage.error-message No! I won't do it!
