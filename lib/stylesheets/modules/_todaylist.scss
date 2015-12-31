@@ -9,7 +9,7 @@
 
 .todaylist-row-habitname {
   flex: 2;
-  color: $base-color;
+  color: $text-color;
   font-weight: $bold;
   display: flex;
   align-items: center;
@@ -38,7 +38,7 @@
 
 .todaylist-row-textinput-label {
   display: block;
-  font-size: 0.75em;
+  font-size: 0.75rem;
 }
 
 .todaylist-row-textinput {
@@ -46,6 +46,7 @@
   font-size: 14px;
   // padding: 0.25em 0.5em;
   padding: 0.25em 0;
+  line-height: 100%;
   width: 7em;
   color: $textinput-color;
   font-weight: $bold;
@@ -97,6 +98,8 @@
 
 .todaylist-row-info {
   flex: 3;
+  font-size: 1.5rem;
+  line-height: 75%;
   display: flex;
   align-items: center;
   justify-content: flex-start;

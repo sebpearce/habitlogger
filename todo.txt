@@ -1,8 +1,7 @@
 TODO
 
 - Write validation for forms
-- Make option to remove all doings for a habit when habit is deleted
-- split app.js into parts with imports
+- When try to delete a habit with referenced doings, modal box to check if sure
 - use Babelify -> then can use imports (kit.js) in client-side with browserify
 - Deploy to Heroku:
 - https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku
