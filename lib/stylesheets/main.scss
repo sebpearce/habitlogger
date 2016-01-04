@@ -1,9 +1,3 @@
-// Typography
-$base-font-family: 'Open Sans';
-$alt-font-family: 'Inconsolata', 'Consolas', monospace;
-$bold: 600;
-$link-color: hsl(210,80%,50%);
-
 // Base colors
 $base-hue: 121;
 $base-color: hsl($base-hue, 26%, 55%);
@@ -14,17 +8,26 @@ $error-box-lightcolor: hsl(0,100%,95%);
 $error-box-darkcolor: hsl(0,100%,65%);
 $delete-link-color: hsl(0,80%,90%);
 $footer-bg: #eee;
-$site-header-bg: $base-color;
-$site-header-color: white;
+$site-header-bg: white;
+$site-header-color: $base-color;
 $todaylist-checkbox-checked-bg: lighten($base-color,20%);
 $todaylist-checkbox-unchecked-bg: #eee;
 $todaylist-info-color: #888;
 $textinput-color: #888;
 
+// Typography
+$base-font-family: 'Open Sans';
+$alt-font-family: 'Inconsolata', 'Consolas', monospace;
+$bold: 600;
+// $link-color: hsl(210,80%,50%);
+$link-color: $base-color;
+$site-title-color: lighten($base-color, 30%);
+
 // Globals
 @import 'globals';
 
 // Layouts
+@import 'layouts/content';
 @import 'layouts/wrapper';
 @import 'layouts/header';
 @import 'layouts/site-footer';
@@ -36,6 +39,10 @@ $textinput-color: #888;
 @import 'modules/deletelink';
 @import 'modules/submitbutton';
 @import 'modules/form';
+@import 'modules/newhabitform';
 @import 'modules/newdoingform';
+@import 'modules/doingslist';
+@import 'modules/habitlist';
 @import 'modules/todaylist';
 @import 'modules/datepicker';
+@import 'modules/calendar';

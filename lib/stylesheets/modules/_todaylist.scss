@@ -1,6 +1,16 @@
 .todaylist-container {
   max-width: 800px;
-  // margin: 0 auto;
+  margin: 0 auto;
+  background: white;
+  box-shadow: 0 0 10px hsla(0,0%,0%,0.1);
+  padding: 2em 0;
+}
+
+.todaylist-title {
+  margin: 0 0 1.5em 0;
+  text-align: center;
+  font-weight: normal;
+  text-transform: lowercase;
 }
 
 .todaylist-row { 
@@ -10,11 +20,12 @@
 .todaylist-row-habitname {
   flex: 2;
   color: $text-color;
-  font-weight: $bold;
+  // font-weight: $bold;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   font-size: 1.5rem;
+  font-family: $alt-font-family;
   // background: pink;
 }
 
@@ -97,12 +108,13 @@
 }
 
 .todaylist-row-info {
-  flex: 3;
+  flex: 2;
   font-size: 1.5rem;
   line-height: 75%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   color: $todaylist-info-color;
+  font-family: $alt-font-family;
   // padding-left: 2em;
 }

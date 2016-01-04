@@ -1,0 +1,43 @@
+$calendar-textlabelcolor: #aaa;
+$calendar-bordercolor: #444;
+
+#calendar-container {
+  display: block;
+  // height: 113px;
+  margin: 1.5em auto;
+  text-align: center;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  background: white;
+  box-shadow: 0 0 15px hsla(0,0%,0%,0.1);
+  padding: 2em 0;
+}
+
+#calendar {
+  width: 720px;
+  height: 110px;
+  // background: hsl(210,70%,85%);
+}
+
+.calendar-title {
+  margin: 0 0 1em 0;
+  padding: 0;
+  font-weight: normal;
+  text-transform: lowercase;
+}
+
+.calendar-monthname {
+  font-size: 10px;
+  fill: $calendar-textlabelcolor;
+}
+
+.calendar-daylabel {
+  fill: $calendar-textlabelcolor;
+  font-size: 10px;
+  text-anchor: middle;
+}
+
+.calendar-day {
+  &:hover {
+    stroke: $calendar-bordercolor;
+  }
+}

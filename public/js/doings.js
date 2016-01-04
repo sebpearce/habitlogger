@@ -20,6 +20,8 @@
         });
 
         $('#doingslist tbody').html(tableData);
+        $('#doingslist').fadeIn(500);
+        $('#newdoingform').fadeIn(500);
       });
     };
 
@@ -76,6 +78,9 @@
     var isBinary = false;
 
     $(document).ready(function () {
+
+      $('#doingslist').hide();
+      $('#newdoingform').hide();
 
       populateDoingsTable();
 

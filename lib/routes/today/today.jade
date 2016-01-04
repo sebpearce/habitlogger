@@ -5,9 +5,12 @@ block scripts
   
 block content  
 
-  h2 Route: /today
+  #calendar-container
+    h2.calendar-title Progress calendar
+    | !{progCalHTML}
 
   .todaylist-container
+    h2.todaylist-title Today’s checklist
     include ./todaylist
   div#errorBox.error-box
     span.error-box-inner

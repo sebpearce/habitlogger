@@ -1,11 +1,13 @@
 .nav {
+  text-align: center;
   margin: 1em 0;
-  padding: 0;
+  padding: 0 0 2em 0;
 }
 
 .nav li {
   display: inline-block;
   list-style: none;
+  text-transform: lowercase;
   &:last-child {
     margin-right: 0;
   }

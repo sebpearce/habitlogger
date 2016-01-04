@@ -1,5 +1,6 @@
 TODO
 
+- if user checks timed/counted habit then unchecks it, it shouldn't send a delete request
 - Write validation for forms
 - When try to delete a habit with referenced doings, modal box to check if sure
 - use Babelify -> then can use imports (kit.js) in client-side with browserify

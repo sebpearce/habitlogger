@@ -2,6 +2,39 @@
 
 {
   (function () {
+    var padWithZeroes = function padWithZeroes(x) {
+      return +x < 10 ? '0' + x : x;
+    };
+
+    var markLastSquare = function markLastSquare(type) {
+      var fill = type === 'full' ? '#52BA69' : '#C7EEBA';
+      console.log('fill = ' + fill);
+      $('.calendar-day[data-date="' + getYYYYMMDD(new Date()) + '"').css({
+        fill: fill,
+        transition: '1s'
+      });
+    };
+
+    var unmarkLastSquare = function unmarkLastSquare(type) {
+      $('.calendar-day[data-date="' + getYYYYMMDD(new Date()) + '"').css({
+        fill: '#eee',
+        transition: '1s'
+      });
+    };
+
+    var updateLastSquare = function updateLastSquare() {
+      if (!$('.todaylist-row-checkbox:not(:checked)').length) markLastSquare('full');else if ($('.todaylist-row-checkbox:checked').length > 0) markLastSquare('semi');else if ($('.todaylist-row-checkbox:checked').length === 0) unmarkLastSquare();
+    };
+
+    // pass in a date object and get 'YYYY-MM-DD' string
+
+    var getYYYYMMDD = function getYYYYMMDD(date) {
+      var yyyy = date.getFullYear().toString();
+      var mm = (date.getMonth() + 1).toString();
+      var dd = date.getDate().toString();
+      return yyyy + '-' + padWithZeroes(mm) + '-' + padWithZeroes(dd);
+    };
+
     var convertInputToSeconds = function convertInputToSeconds(string) {
 
       // check for two digits separated by a space and handle them
@@ -164,6 +197,9 @@
             console.log('Executing updateTodayHabit with text input...');
             console.log(thisRowId, validInput, thisRowType);
             updateTodayHabit(thisRowId, validInput, thisRowType);
+            // if (!$('.todaylist-row-checkbox:not(:checked)').length) markLastSquare('full');
+            // else if ($('.todaylist-row-checkbox:checked').length > 0) markLastSquare('semi');
+            updateLastSquare();
             $('.todaylist-row-textinput-container[data-id="' + thisRowId + '"]').removeClass('isbeingedited').hide();
             $(this).val('');
           } else {
@@ -194,7 +230,12 @@
           // if binary -> update db
           console.log('Executing updateTodayHabit with binary...');
           console.log(thisRowId, isChecked);
-          if (isChecked) updateTodayHabit(thisRowId, 1, 3);else deleteTodayHabit(thisRowId);
+          if (isChecked) {
+            updateTodayHabit(thisRowId, 1, 3);
+            // if (!$('.todaylist-row-checkbox:not(:checked)').length) markLastSquare('full');
+            // else if ($('.todaylist-row-checkbox:checked').length > 0) markLastSquare('semi');
+            updateLastSquare();
+          } else deleteTodayHabit(thisRowId);
         } else {
           // if not binary -> show text input
           var container = '#todaylist-row-textinput-container-' + thisRowId;
@@ -214,7 +255,9 @@
             }
           }
         }
+        // if ($('.todaylist-row-checkbox:not(:checked)').length) unmarkLastSquare();
+        updateLastSquare();
       });
-    });
+    }); // end of document ready
   })();
 }
