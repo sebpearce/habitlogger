@@ -1,3 +1,6 @@
 footer(class='site-footer') 
   //- img(src='img/node.svg' width='30px' height='30px' class='site-footer-img')
-  | &copy; Seb Pearce 2015. Powered by Node.js, Express and Postgres.
+  | &copy; Seb Pearce 2015–
+  script.
+    document.write((new Date()).getFullYear());
+  |. Powered by Node.js, Express and Postgres.
