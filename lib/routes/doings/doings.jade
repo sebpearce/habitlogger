@@ -3,13 +3,17 @@ extends ../../views/layout
 block head
   link(href='/css/bootstrap-datepicker3.min.css', rel='stylesheet')
 
+block link
+  -var selected = 'doings';
+
 block scripts
   script(src='/js/bootstrap-datepicker.min.js')
   script(src='/js/doings.js')
   
 block content  
 
-  .doingslist-container
+  .doingslist-container.whitebox
+    h2.doingslist-title edit doings
     include ./doingslist
   .form-container.newdoingform-container
     include ./newdoingform

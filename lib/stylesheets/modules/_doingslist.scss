@@ -1,4 +1,29 @@
-#doingslist {
+.doingslist-container {
+  padding: 2em 4em;
+  text-align: center;
+}
+
+.doingslist-title {
+  font-family: $alt-font-family;
+  font-weight: normal;
+  text-align: center;
+  margin: 0 0 1em 0;
+}
+
+
+table#doingslist {
   margin: 0 auto;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  width: 100%;
+  text-align: left;
+}
+
+table#doingslist th {
+  text-align: left;
+  padding: 0.5em 1em;
+  font-weight: $bold;
+}
+
+table#doingslist td {
+  padding: 0 1em;
 }

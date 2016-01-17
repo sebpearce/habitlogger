@@ -1,15 +1,18 @@
 extends ../../views/layout
 
+block link
+  -var selected = 'today';
+
 block scripts
   script(src='/js/today.js')
   
 block content  
 
-  #calendar-container
+  #calendar-container.whitebox
     h2.calendar-title Progress calendar
     | !{progCalHTML}
 
-  .todaylist-container
+  .todaylist-container.whitebox
     h2.todaylist-title Today’s checklist
     include ./todaylist
   div#errorBox.error-box

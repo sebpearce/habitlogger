@@ -1,11 +1,14 @@
 extends ../../views/layout
 
+block link
+  -var selected = 'habits';
+
 block scripts
   script(src='/js/habits.js')
   
 block content  
 
-  .habitlist-container
+  .habitlist-container.whitebox
     include ./habitlist.jade
   .form-container.newhabitform-container
     include ./newhabitform.jade

@@ -4,12 +4,11 @@ $calendar-bordercolor: #444;
 #calendar-container {
   display: block;
   // height: 113px;
-  margin: 1.5em auto;
+  margin: 0 auto 1.5em auto;
   text-align: center;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  background: white;
-  box-shadow: 0 0 15px hsla(0,0%,0%,0.1);
   padding: 2em 0;
+  overflow: hidden;
 }
 
 #calendar {

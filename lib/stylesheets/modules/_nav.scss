@@ -1,23 +1,40 @@
 .nav {
   text-align: center;
-  margin: 1em 0;
-  padding: 0 0 2em 0;
+  margin: 1em 0 1.1em 0;
+  // font-family: $alt-font-family;
+  font-size: 1.1rem;
+  padding: 0;
 }
 
 .nav li {
   display: inline-block;
   list-style: none;
   text-transform: lowercase;
+  margin-right: 1em;
+  font-size: 0.9rem;
+  padding: 0;
+  // text-transform: uppercase;
+  // font-weight: $bold;
+  letter-spacing: -0.02em;
   &:last-child {
     margin-right: 0;
   }
 }
 
 .nav li a {
-  color: $link-color;
+  // color: $link-color;
+  display: inline-block;
+  background: $nav-bg;
+  color: $nav-color;
+  border-radius: 3px;
   text-decoration: none;
-  padding: 1em 2em;
+  padding: 0.7em 2em;
+  transition: background 0.2s ease;
   &:hover {
-    color: lighten($link-color, 30%);
+    background: #ddd;
+    transition: none;
+  }
+  &.selected {
+    background: $nav-bg-selected;
   }
 }
