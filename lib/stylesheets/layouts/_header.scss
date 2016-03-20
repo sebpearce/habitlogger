@@ -1,14 +1,14 @@
 .site-header {
-  color: $site-header-bg;
+  padding-top: 1em;
   text-align: center;
-  background: $base-color;
-  box-shadow: 0 0 5px #999;
+  background: $site-header-bg;
+  // box-shadow: 0 0 5px #999;
 }
 
 .site-title {
-  margin: 1em 0 1em 0;
+  margin: 0.5em 0;
   // font-size: 4rem;
-  font-size: 1.2rem;
+  font-size: 3rem;
   line-height: 100%;
   font-weight: 400;
   font-family: $alt-font-family;

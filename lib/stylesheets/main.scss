@@ -9,7 +9,7 @@ $error-box-lightcolor: hsl(0,100%,95%);
 $error-box-darkcolor: hsl(0,100%,65%);
 $delete-link-color: hsl(0,80%,90%);
 $footer-bg: #eee;
-$site-header-bg: $base-color;
+$site-header-bg: transparent;
 $todaylist-checkbox-checked-bg: lighten($base-color,20%);
 $todaylist-checkbox-unchecked-bg: #eee;
 $todaylist-info-color: #888;
@@ -26,7 +26,7 @@ $bold: 600;
 // $link-color: hsl(210,80%,50%);
 $link-color: $base-color;
 // $site-title-color: lighten($base-color, 30%);
-$site-title-color: white;
+$site-title-color: $base-color;
 $default-box-shadow: 0 0 15px hsla(0,0%,0%,0.1);
 $thin-box-shadow: 0 0 5px hsla(0,0%,0%,0.1);
 

@@ -4,4 +4,43 @@ extends ../../views/layout
 
 block content
 
-  h3 Welcome to habitlogger.
+  h2 Welcome to Habitlogger
+
+  p Habitlogger is a productivity app that tracks your daily habits.
+
+  p 
+    | I created this app as a way to showcase my skills with Node.js, Express.js, PostgreSQL and Jade, and my ability to create a functioning database-driven app. The code is available 
+    a(href="https://github.com/sebpearce/habitlogger") here on GitHub.
+
+  p Feel free to add/update/edit/delete any records you like.
+
+  h2 How it works
+
+  p 
+    | There are three types of habits: 
+    b timed 
+    | (e.g. studied for 2 hours), 
+    b counted 
+    | (e.g. did 100 push-ups), and 
+    b binary 
+    | (you either did it or you didn't, e.g. resisted the temptation to check Facebook).
+
+  p
+    | Each day you head to the 
+    b today 
+    | tab and check off the habits you successfully did that day. Depending on the type of habit, it may prompt you for more information (try it!). Each time you check one off, it will create a row in the 
+    b doings 
+    | table with the ID, date, value, habit and habit type. You can edit these rows directly in the 
+    b doings 
+    | tab.
+
+  p 
+    | The progress calendar is a record of your habits for the past year.
+    | If your habit count for a particular day is higher than zero, the square for that day will turn light green. If you check off all the habits for today, the square will turn a darker shade of green. The calendar is a pure JS remake of the GitHub contributions calendar which dynamically generates an SVG. You see my code for it  
+    a(href="http://codepen.io/sebpearce/pen/yeVrJz") here on CodePen
+    | .
+
+  p 
+    | Lastly, the 
+    b db 
+    | tab is simply a database dump, which is there for reference as it shows the structure of the database.
