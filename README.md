@@ -2,7 +2,7 @@
 
 Habitlogger is a productivity app that tracks your daily habits. [Access the live page here.](http://habitlogger.herokuapp.com)
 
-I created this app as a way to showcase my skills with Node.js, Express.js, PostgreSQL and Jade, and my ability to create a functioning database-driven app. The code is available [here on GitHub.](https://github.com/sebpearce/habitlogger).
+I created this app as a way to showcase my skills with Node.js, Express.js, PostgreSQL and Jade, and my ability to create a functioning database-driven app.
 
 Feel free to add/update/edit/delete any records you like.
 
